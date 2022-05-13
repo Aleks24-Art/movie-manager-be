@@ -1,9 +1,9 @@
-# Описание проекта <Шаблон sprig-boot-template>
+# Описание проекта Movie Manager
 
 Модуль включает в себя:
 * *Swagger OpenAPI 3.0*;
 * Работу с СУБД, а именно с **Postgresql**;
-* Миграцию БД с использованием *sql*-патчей в формате *xml*;
+* Миграцию БД с использованием *sql*-патчей в формате *sql*;
 * **docker-compose** для быстрого старта разработки;
 * [CODEOWNERES](<добавить>) для более гибких правил ревью кода.
 
@@ -12,17 +12,10 @@
 | java                             | 11                                                                       |
 | build                            | gradle wrapper 7.1                                                       |
 | test                             | junit (модульное), TestContainers (интеграционное), pitest (мутационное) |
-| check task <br/>(gradle plugins) | checkstyle, pmd, spotBugs, jacoco, pitest                  |
+| check task <br/>(gradle plugins) | checkstyle                 |
 
 Запуск приложения:
 1. Клонировать репозиторий;
 2. Убедиться что *docker-compose* установлен;
 3. Запустить развертку контейнеров *docker-compose up*, используя docker-compose.yml файл в проекте;
 4. Запустить **spring-boot** приложение /gradlew bootRun
-
-
-## Примечание
-Стандарты разработки
-* [Общая документация](<добавить>);
-* [Локальные правила и договорённости команды](<добавить>);
-* [Gitflow команды](<добавить>);
