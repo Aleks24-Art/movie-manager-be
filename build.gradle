@@ -1,0 +1,68 @@
+plugins {
+	id 'org.springframework.boot' version '2.6.3'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+	id "io.freefair.lombok" version "6.4.1"
+
+	// Check code style described in checkstyle.xml
+	id "checkstyle"
+}
+
+group 'com.example.template.controller'
+
+apply from: './versions.gradle'
+
+springBoot {
+	buildInfo()
+}
+
+checkstyle {
+
+	checkstyleMain {
+		showViolations = true
+		ignoreFailures = false
+		maxWarnings = 0
+	}
+
+	checkstyleTest {
+		showViolations = true
+		ignoreFailures = true
+	}
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+
+	implementation "com.auth0:java-jwt:${versions.javaJwt}"
+	implementation "org.springdoc:springdoc-openapi-ui:${versions.springDoc}"
+
+    implementation "org.flywaydb:flyway-core:${versions.flyway}"
+    implementation 'org.postgresql:postgresql'
+
+	implementation "org.mapstruct:mapstruct:${versions.mapstruct}"
+	annotationProcessor "org.mapstruct:mapstruct:${versions.mapstruct}"
+	implementation "org.mapstruct:mapstruct-processor:${versions.mapstruct}"
+	annotationProcessor "org.mapstruct:mapstruct-processor:${versions.mapstruct}"
+
+
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation "org.testcontainers:postgresql:${versions.testContainer}"
+	testImplementation "org.testcontainers:junit-jupiter:${versions.testContainer}"
+	testImplementation 'org.mockito:mockito-junit-jupiter'
+	testImplementation 'org.mockito:mockito-core'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}

@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-boot-template
+  labels:
+    app: spring-boot-template
+    version: 1.0.0
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: spring-boot-template
+  template:
+    metadata:
+      labels:
+        app: spring-boot-template
+        version: 1.0.0
+    spec:
+      containers:
+        - name: spring-boot-template
+          image: <your Docker Hub account>/spring-boot-template:1.0.0
+          env:
+            - name: DB_USERNAME
+              valueFrom:
+                configMapKeyRef:
+                  name: postgres-config
+                  key: postgres_user
+            - name: DB_PASSWORD
+              valueFrom:
+                configMapKeyRef:
+                  name: postgres-config
+                  key: postgres_password
+            - name: DB_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: hostname-config
+                  key: postgres_host

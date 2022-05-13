@@ -1,0 +1,6 @@
+.git
+.idea
+.PVS-Studio
+**/*.class
+*.md
+CODEOWNERS

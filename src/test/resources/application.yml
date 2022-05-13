@@ -1,0 +1,21 @@
+spring:
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        default-schema: public
+    hibernate:
+      ddl-auto: none
+  test:
+    database:
+      replace: none
+  liquibase:
+    change-log: classpath:db/changelog.xml
+    default-schema: public
+    liquibase-schema: public
+    contexts: test
+    drop-first: false
+logging:
+  level:
+    liquibase: INFO
