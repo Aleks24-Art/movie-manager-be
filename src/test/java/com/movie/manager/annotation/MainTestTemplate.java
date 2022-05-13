@@ -1,7 +1,7 @@
-package com.example.template.annotation;
+package com.movie.manager.annotation;
 
-import com.example.template.MovieManagerApplication;
-import com.example.template.config.db.PostgresSqlContainerConfig;
+import com.movie.manager.MovieManagerApplication;
+import com.movie.manager.config.db.PostgresSqlContainerConfig;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.lang.annotation.ElementType;
