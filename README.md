@@ -12,7 +12,7 @@
 | build                            | gradle wrapper 7.1                                                       |
 | test                             | junit (модульное), TestContainers (интеграционное), pitest (мутационное) |
 | check task <br/>(gradle plugins) | checkstyle                 |
-
+ 
 Запуск приложения:
 1. Клонировать репозиторий;
 2. Убедиться что *docker-compose* установлен;
